@@ -97,16 +97,16 @@ class Dots(Game):
                         crushing(object_1, object_2)
 
         for object in self.objects:
-            if object.center[0] > con.SCREEN_WIDTH:
+            if (object.center[0] + con.RADIUS) > con.SCREEN_WIDTH:
                 object.speed[0] = -object.speed[0]
 
-            if object.center[1] > con.SCREEN_HEIGHT:
+            if (object.center[1] + con.RADIUS) > con.SCREEN_HEIGHT:
                 object.speed[1] = -object.speed[1]
 
-            if object.center[0] < 0:
+            if (object.center[0] - con.RADIUS) < 0:
                 object.speed[0] = -object.speed[0]
 
-            if object.center[1] < 0:
+            if (object.center[1] - con.RADIUS) < 0:
                 object.speed[1] = -object.speed[1]
 
         handle_collision(self)
